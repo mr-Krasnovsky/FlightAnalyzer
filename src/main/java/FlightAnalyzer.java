@@ -178,7 +178,12 @@ public class FlightAnalyzer {
             int avgPrice = summPrice / tiketsList.size();
 
             Collections.sort(prices);
-            int medianPrice = prices.get(prices.size() / 2);
+            int medianPrice;
+            if (prices.size() % 2 == 0){
+                medianPrice = (prices.get(prices.size() / 2) + prices.get(prices.size() / 2 - 1)) / 2;
+            } else {
+                medianPrice = prices.get(prices.size() / 2);
+            }
             printDiffPrice(avgPrice, medianPrice);
         }
     }
